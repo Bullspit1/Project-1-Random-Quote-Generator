@@ -3,33 +3,37 @@
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 //A global scope which is an array of objects holding data for the quotes.
-//TODO Add more properties to the quote object. For example, a tags property could include a list of "tags" like "humor", "business", or "politics" to categorize each quote.
 var quotes = [
-  {quote: "Moral indignation is jealousy with a halo.",
+  {
+   quote: "If you fell down yesterday, stand up today.",
    source: "H. G. Wells",
-   citation: "fjdfjsdkf",
-   year: 1866 + "-" + 1946,
-   tags: ["Humor", "Business"]},
-  {quote: "Glory is fleeting, but obscurity is forever.",
-   source: "Napoleon Bonaparte",
    citation: "",
-   year: 1769 + "-" +1821,
-   tags: ["Humor"]},
-  {quote: "You can avoid reality, but you cannot avoid the consequences of avoiding reality.",
+   year: "",
+   tags: ["Writer", "Power", "Inspiration"]},
+  {
+   quote: "They may take our lives, but they'll never take our freedom!",
+   source: "Mel Gibson",
+   citation: "Braveheart",
+   year: 1995,
+   tags: ["Movie", "Freedom"]},
+  {
+   quote: "You can avoid reality, but you cannot avoid the consequences of avoiding reality.",
    source: "Ayn Rand",
    citation: "",
    year: 1905 + "-" + 1982,
-   tags: ["Business"]},
-  {quote: "A successful man is one who can lay a firm foundation with the bricks others have thrown at him.",
-   source: "David Brinkley",
-   citation: "fdfds",
-   year: "",
-   tags: [""]},
-  {quote: "Strive not to be a success, but rather to be of value.",
+   tags: ["Novelist", "Reality"]},
+  {
+   quote: "Fear doesn’t shut you down; it wakes you up.",
+   source: "Veronica Roth",
+   citation: "Divergent",
+   year: "2011",
+   tags: ["Book", "Powerful"]},
+  {
+   quote: "Strive not to be a success, but rather to be of value.",
    source: "Albert Einstein",
    citation: "",
    year: "",
-   tags: [""]}
+   tags: ["Value", "Inspiration"]}
 ];
 //A variable which has nothing stored in it YET.
 var html;
@@ -37,6 +41,7 @@ var html;
 //it chooses a random number between 0 and 4 and stores it in a var called rand.
 //it then returns a random quote object from the quotes array.
 function getRandomQuote(numQuotes){
+  //a var called random which stores a random number code which is multiplied by the argument quotes.length giving the random numbers a range from how many object there are in the array (5).
   var rand = Math.floor(Math.random() * numQuotes);
   return quotes[rand];
 }
@@ -44,9 +49,15 @@ function getRandomQuote(numQuotes){
 function randomRGB(){
   return Math.floor(Math.random() * 256);
 }
+//A DOM that selects the transition of the body and make the color ease-in-out smoothly. As well with text.
+document.getElementsByTagName('body')[0].style.transition = 'ease-in-out 1.5s';
+
+//After the page loads run the function printQuote() which will show one of the 5 random quotes at start.
+window.onload = printQuote();
 
 //The function that prints the quotes to the page when the button is pressed.
 function printQuote(){
+  // a var called randomQuoteObject that stors the function getRandomQuote with the argument of quotes.length
 var randomQuoteObject = getRandomQuote(quotes.length);
 var eachQuote = randomQuoteObject['quote'];
 var eachSource = randomQuoteObject['source'];
@@ -54,11 +65,12 @@ var eachCitation = randomQuoteObject['citation'];
 var eachYear = randomQuoteObject['year'];
 //This eachTag variable does the same job as the others above; however, it joins the array into one string with commas at each ones beginning
 var eachTag = randomQuoteObject['tags'].join(", ");
-// console.log(eachTag);
+
 
 html = '<p class="quote">' + eachQuote + '</p>';
 html += '<p class="source">' + eachSource;
 
+//An if statement which detects if one or both of the properties hold empty strings. If none of the if or if else statements are true the else is used.
 if (eachCitation === "" && eachYear === "") {
   html += "";
 }
@@ -76,6 +88,7 @@ html += '<span class="tags">' + eachTag + '</span>';
 
 html += '</p>';
 
+//Displays the var html with all content added to the innerHTML.
 document.getElementById('quote-box').innerHTML = html;
 
 //Each variable stores the randomRGB function which stores a random number.
