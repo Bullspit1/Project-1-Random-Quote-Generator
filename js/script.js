@@ -33,6 +33,8 @@ var quotes = [
 ];
 //A variable which has nothing stored in it YET.
 var html;
+var timerBoolian = true;
+var setTimeOut;
 //A function called getRandomQuote which takes an argument numQuotes storing the number of objects in the array (5)
 //it chooses a random number between 0 and 4 and stores it in a var called rand.
 //it then returns a random quote object from the quotes array.
@@ -84,6 +86,6 @@ var blue = randomRGB();
 var rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
 document.getElementsByTagName('body')[0].style.backgroundColor = rgbColor;
 
-//After each button press the quote is refreshed automatically after every 30 seconds.
-setTimeout(printQuote, 30000);
 }
+//The setInterval refreshes the quote automatically after every 30 seconds.
+setInterval(printQuote, 31000);
