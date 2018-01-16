@@ -33,8 +33,6 @@ var quotes = [
 ];
 //A variable which has nothing stored in it YET.
 var html;
-var timerBoolian = true;
-var setTimeOut;
 //A function called getRandomQuote which takes an argument numQuotes storing the number of objects in the array (5)
 //it chooses a random number between 0 and 4 and stores it in a var called rand.
 //it then returns a random quote object from the quotes array.
@@ -54,8 +52,9 @@ var eachQuote = randomQuoteObject['quote'];
 var eachSource = randomQuoteObject['source'];
 var eachCitation = randomQuoteObject['citation'];
 var eachYear = randomQuoteObject['year'];
-var eachTag = randomQuoteObject['tags'];
-
+//This eachTag variable does the same job as the others above; however, it joins the array into one string with commas at each ones beginning
+var eachTag = randomQuoteObject['tags'].join(", ");
+// console.log(eachTag);
 
 html = '<p class="quote">' + eachQuote + '</p>';
 html += '<p class="source">' + eachSource;
@@ -73,6 +72,7 @@ else{
   html += '<span class="citation">' + eachCitation + '</span>';
   html += '<span class="year">' + eachYear + '</span>';
 }
+html += '<span class="tags">' + eachTag + '</span>';
 
 html += '</p>';
 
