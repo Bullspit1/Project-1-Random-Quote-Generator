@@ -26,7 +26,7 @@ var quotes = [
    quote: "Fear doesn’t shut you down; it wakes you up.",
    source: "Veronica Roth",
    citation: "Divergent",
-   year: "2011",
+   year: 2011,
    tags: ["Book", "Powerful"]},
   {
    quote: "Strive not to be a success, but rather to be of value.",
