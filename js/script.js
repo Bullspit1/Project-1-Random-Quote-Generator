@@ -35,7 +35,7 @@ var quotes = [
    year: "",
    tags: ["Value", "Inspiration"]}
 ];
-//A variable which has nothing stored in it YET.
+//A variable which has nothing stored in it YET. It will hold the string concatination of the quotes, citation, ect.
 var html;
 //A function called getRandomQuote which takes an argument numQuotes storing the number of objects in the array (5)
 //it chooses a random number between 0 and 4 and stores it in a var called rand.
